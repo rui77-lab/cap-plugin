@@ -1,0 +1,60 @@
+{
+  "name": "eonid-plg",
+  "version": "1.0.0",
+  "description": "CAP Plugin to create incremental Company Code based Ids",
+  "main": "cds-plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cap-js/db-service": "^1.20.0",
+    "pg": "^8"
+  },
+  "peerDependencies": {
+    "@sap/cds": ">=7.6",
+    "@sap/cds-dk": ">=7.5"
+  },
+  "peerDependenciesMeta": {
+    "@sap/cds-dk": {
+      "optional": true
+    }
+  },
+  "cds": {
+    "requires": {
+      "eonid_plg": {
+        "model": "eonid_plg"
+      },
+      "kinds": {
+        "eonid": {
+          "impl": "eonid_plg",
+          "kind": "eonid"
+        }
+      }
+    },
+    "schema": {
+      "buildTaskType": {
+        "name": "eonid",
+        "description": "EON Plugin to incrementally build a company code"
+      },
+      "cds": {
+        "eonid_plg": {
+          "description": "Plugin setup",
+          "properties": {
+            "companycodes": {
+              "type": "array",
+              "description": "Array containing company codes which will be created as a sequence"
+            },
+            "destFolder": {
+              "type": "string",
+              "description": "Destination folder on which the hdbsequences will be created on build phase",
+              "default": "sequencesfolder"
+            }
+          }
+        }
+      }
+    }
+  }
+}
