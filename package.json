@@ -9,18 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@cap-js/db-service": "^1.20.0",
-    "pg": "^8"
-  },
   "peerDependencies": {
     "@sap/cds": ">=7.6",
     "@sap/cds-dk": ">=7.5"
-  },
-  "peerDependenciesMeta": {
-    "@sap/cds-dk": {
-      "optional": true
-    }
   },
   "cds": {
     "requires": {
